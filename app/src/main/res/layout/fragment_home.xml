@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.HomeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_gray"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/_5sdp">
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:fontFamily="@font/prompt_medium"
+            android:text="Welcome Back,"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16sdp" />
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text1"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="-8dp"
+            android:fontFamily="@font/prompt_bold"
+            android:text="Bhawesh Jain"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_20sdp" />
+
+        <EditText
+            android:layout_below="@+id/text2"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:id="@+id/edt_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:background="@drawable/custom_bg_edit_rounded"
+            android:drawableEnd="@drawable/ic_search"
+            android:fontFamily="@font/prompt_regular"
+            android:hint="Search Here"
+            android:paddingHorizontal="@dimen/_8sdp"
+            android:paddingVertical="@dimen/_8sdp"
+            android:textSize="@dimen/_8sdp" />
+
+
+        <TextView
+            android:id="@+id/text_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_below="@id/edt_search"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:fontFamily="@font/prompt_bold"
+            android:text="Courses"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16sdp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_heading"
+            android:layout_marginTop="@dimen/_5sdp" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

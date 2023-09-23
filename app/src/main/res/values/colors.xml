@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="color_primary">#180600</color>
+    <color name="rippleColor">#CACACA</color>
+    <color name="light_gray">#BABABA</color>
+    <color name="lightest_gray">#F4F4F4</color>
+    <color name="bg_gray">#FDFDFD</color>
+    <color name="gold">#F9A825</color>
+    <color name="text_color">#C0BDBD</color>
+    <color name="text_dark_color">#353535</color>
+</resources>
