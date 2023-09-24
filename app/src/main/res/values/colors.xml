@@ -6,9 +6,19 @@
     <color name="color_primary">#180600</color>
     <color name="rippleColor">#CACACA</color>
     <color name="light_gray">#BABABA</color>
+    <color name="medium_light_gray">#EDEDED</color>
     <color name="lightest_gray">#F4F4F4</color>
     <color name="bg_gray">#FDFDFD</color>
     <color name="gold">#F9A825</color>
     <color name="text_color">#C0BDBD</color>
     <color name="text_dark_color">#353535</color>
+
+    <color name="light_text_color">#333A43</color>
+    <color name="view_divider">#eeeeee</color>
+    <color name="edit_text_color">#A1A8B0</color>
+    <color name="black_light">#717784</color>
+
+    <color name="red">#F44336</color>
+    <color name="light_red">#E57373</color>
+    <color name="logo_bg">#001719</color>
 </resources>

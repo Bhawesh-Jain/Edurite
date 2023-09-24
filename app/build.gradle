@@ -43,11 +43,17 @@ dependencies {
     // SDP
     implementation 'com.intuit.sdp:sdp-android:1.1.0'
 
+    // SSP
+    implementation 'com.intuit.ssp:ssp-android:1.1.0'
+
     // Lottie Animation
     def lottieVersion = "3.4.0"
     implementation "com.airbnb.android:lottie:$lottieVersion"
 
     // Rounded Image View
     implementation 'com.makeramen:roundedimageview:2.3.0'
+
+    // Circle Image View
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
 }
