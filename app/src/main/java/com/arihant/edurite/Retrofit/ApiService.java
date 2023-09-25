@@ -6,6 +6,7 @@ import com.arihant.edurite.models.LoginModel;
 import com.arihant.edurite.models.MaterialListModel;
 import com.arihant.edurite.models.PrivacyPolicyModel;
 import com.arihant.edurite.models.SignupModel;
+import com.arihant.edurite.models.TermsModel;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -42,4 +43,7 @@ public interface ApiService {
     Call<AboutUsModel> getAboutUs();
     @POST(BaseUrl.getPrivacyPolicy)
     Call<PrivacyPolicyModel> getPrivacyPolicy();
+
+    @POST(BaseUrl.getTerms)
+    Call<TermsModel> getTerms();
 }

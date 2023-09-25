@@ -10,5 +10,6 @@ public interface BaseUrl {
     String getMaterialList = "getMaterialList";
     String getAboutUs = "getAboutUs";
     String getPrivacyPolicy = "getPrivacyPolicy";
+    String getTerms = "getTerms";
 
 }

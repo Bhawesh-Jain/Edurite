@@ -192,6 +192,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:id="@+id/ll_terms"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:orientation="horizontal">
 
