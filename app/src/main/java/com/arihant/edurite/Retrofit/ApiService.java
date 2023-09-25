@@ -2,6 +2,7 @@ package com.arihant.edurite.Retrofit;
 
 import com.arihant.edurite.models.AboutUsModel;
 import com.arihant.edurite.models.CourseListModel;
+import com.arihant.edurite.models.FaqModel;
 import com.arihant.edurite.models.LoginModel;
 import com.arihant.edurite.models.MaterialListModel;
 import com.arihant.edurite.models.PrivacyPolicyModel;
@@ -43,7 +44,8 @@ public interface ApiService {
     Call<AboutUsModel> getAboutUs();
     @POST(BaseUrl.getPrivacyPolicy)
     Call<PrivacyPolicyModel> getPrivacyPolicy();
-
     @POST(BaseUrl.getTerms)
     Call<TermsModel> getTerms();
+    @POST(BaseUrl.get_faq)
+    Call<FaqModel> getFaq();
 }

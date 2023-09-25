@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.arihant.edurite.R;
 import com.arihant.edurite.databinding.FragmentSettingsBinding;
 import com.arihant.edurite.ui.activities.AboutUsActivity;
+import com.arihant.edurite.ui.activities.FaqActivity;
 import com.arihant.edurite.ui.activities.PrivacyPolicyActivity;
 import com.arihant.edurite.ui.activities.TermsActivity;
 
@@ -31,6 +32,7 @@ public class SettingsFragment extends Fragment {
         binding.llAboutUs.setOnClickListener(view -> startActivity(new Intent(activity, AboutUsActivity.class)));
         binding.llPrivacyPolicy.setOnClickListener(view -> startActivity(new Intent(activity, PrivacyPolicyActivity.class)));
         binding.llTerms.setOnClickListener(view -> startActivity(new Intent(activity, TermsActivity.class)));
+        binding.llFaq.setOnClickListener(view -> startActivity(new Intent(activity, FaqActivity.class)));
 
         return binding.getRoot();
     }

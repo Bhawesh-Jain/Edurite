@@ -11,5 +11,6 @@ public interface BaseUrl {
     String getAboutUs = "getAboutUs";
     String getPrivacyPolicy = "getPrivacyPolicy";
     String getTerms = "getTerms";
+    String get_faq = "get_faq";
 
 }
