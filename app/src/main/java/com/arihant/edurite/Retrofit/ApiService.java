@@ -1,5 +1,6 @@
 package com.arihant.edurite.Retrofit;
 
+import com.arihant.edurite.models.AboutUsModel;
 import com.arihant.edurite.models.CourseListModel;
 import com.arihant.edurite.models.LoginModel;
 import com.arihant.edurite.models.MaterialListModel;
@@ -35,4 +36,7 @@ public interface ApiService {
 
     @POST(BaseUrl.getMaterialList)
     Call<MaterialListModel> getMaterialList();
+
+    @POST(BaseUrl.getAboutUs)
+    Call<AboutUsModel> getAboutUs();
 }

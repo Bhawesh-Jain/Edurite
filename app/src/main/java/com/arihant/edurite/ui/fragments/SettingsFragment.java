@@ -1,6 +1,7 @@
 package com.arihant.edurite.ui.fragments;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.arihant.edurite.R;
 import com.arihant.edurite.databinding.FragmentSettingsBinding;
+import com.arihant.edurite.ui.activities.AboutUsActivity;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -24,6 +26,7 @@ public class SettingsFragment extends Fragment {
         binding = FragmentSettingsBinding.inflate(inflater, container, false);
         activity = requireActivity();
 
+        binding.llAboutUs.setOnClickListener(view -> startActivity(new Intent(activity, AboutUsActivity.class)));
 
         return binding.getRoot();
     }
