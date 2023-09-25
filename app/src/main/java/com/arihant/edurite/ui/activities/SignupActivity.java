@@ -1,14 +1,21 @@
 package com.arihant.edurite.ui.activities;
 
 import static com.arihant.edurite.ui.activities.LoginActivity.TAG;
+import static com.arihant.edurite.util.Util.encodeImageBitmap;
 import static com.arihant.edurite.util.Util.isValidEmail;
 import static com.arihant.edurite.util.Util.togglePassword;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.PickVisualMediaRequest;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -30,6 +37,7 @@ public class SignupActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private Session session;
     private String image = "", fcm = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,11 +50,24 @@ public class SignupActivity extends AppCompatActivity {
         binding.textSignup.setOnClickListener(view -> validateSignup());
         binding.imagePasswordEye.setOnClickListener(view -> togglePassword(binding.edtPassword, binding.imagePasswordEye));
         binding.imageConPasswordEye.setOnClickListener(view -> togglePassword(binding.edtConfirmPassword, binding.imageConPasswordEye));
+        binding.imageProfile.setOnClickListener(view -> pickMedia.launch(new PickVisualMediaRequest.Builder().build()));
 
         image = "";
         fcm = "Hello";
 
     }
+    ActivityResultLauncher<PickVisualMediaRequest> pickMedia =
+            registerForActivityResult(new ActivityResultContracts.PickVisualMedia(), uri -> {
+                if (uri != null) {
+                    Log.e("TAG", "null() called " + uri);
+                    binding.imageProfile.setImageURI(uri);
+
+                    Bitmap bitmap = ((BitmapDrawable) binding.imageProfile.getDrawable()).getBitmap();
+                    image = encodeImageBitmap(bitmap);
+                } else {
+                    Toast.makeText(activity, "No media selected", Toast.LENGTH_SHORT).show();
+                }
+            });
 
     private void validateSignup() {
         if (binding.edtName.getText() != null && !binding.edtName.getText().toString().trim().isEmpty()) {
@@ -97,10 +118,11 @@ public class SignupActivity extends AppCompatActivity {
                             session.setUserImage(data.getProfileImg());
 
                             startActivity(new Intent(activity, DashboardActivity.class)
-                                    .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK));
+                                    .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
                         } else {
                             String message = response.body().getMsg();
-                            if (message.equalsIgnoreCase("username already registerd..!")) message = "Email Already Used! Please Login or Signup using another Email!";
+                            if (message.equalsIgnoreCase("username already registerd..!"))
+                                message = "Email Already Used! Please Login or Signup using another Email!";
                             Snackbar.make(binding.getRoot(), message, Snackbar.LENGTH_LONG).show();
                         }
                     }

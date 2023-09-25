@@ -15,6 +15,7 @@
         android:orientation="vertical">
 
         <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/image_thumbnail"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_130sdp"
             android:layout_gravity="center"

@@ -1,5 +1,6 @@
 package com.arihant.edurite.Retrofit;
 
+import com.arihant.edurite.models.CourseListModel;
 import com.arihant.edurite.models.LoginModel;
 import com.arihant.edurite.models.SignupModel;
 
@@ -27,4 +28,7 @@ public interface ApiService {
             @Field("image") String image,
             @Field("fcm") String fcm
     );
+
+    @POST(BaseUrl.getCourseList)
+    Call<CourseListModel> getCourseList();
 }

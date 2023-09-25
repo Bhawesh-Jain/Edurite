@@ -6,5 +6,6 @@ public interface BaseUrl {
 
     String login = "login";
     String signup = "signup";
+    String getCourseList = "getCourseList";
 
 }

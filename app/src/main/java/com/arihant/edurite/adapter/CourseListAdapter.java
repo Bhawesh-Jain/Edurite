@@ -1,5 +1,7 @@
 package com.arihant.edurite.adapter;
 
+import static com.arihant.edurite.util.Util.decodeImage;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,8 +12,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.arihant.edurite.databinding.ItemCourseRecyclerBinding;
+import com.arihant.edurite.models.CourseListModel;
+
+import java.util.List;
 
 public class CourseListAdapter extends RecyclerView.Adapter<CourseListAdapter.ViewHolder> {
+    private final Context context;
+    private final List<CourseListModel.Datum> data;
+
+    public CourseListAdapter(Context context, List<CourseListModel.Datum> data) {
+        this.context = context;
+        this.data = data;
+    }
 
     @NonNull
     @Override
@@ -21,16 +33,22 @@ public class CourseListAdapter extends RecyclerView.Adapter<CourseListAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        if (data.get(position) != null) {
+            CourseListModel.Datum current = data.get(position);
+
+            holder.binding.textHeading.setText(current.getTitle());
+            holder.binding.textDesc.setText(current.getDescription());
+
+            holder.binding.imageThumbnail.setImageBitmap(decodeImage(current.getImage()));
+        }
         holder.binding.rating.setRating(position + 1);
         holder.binding.textRating.setText(String.valueOf(position + 1));
         holder.binding.textTotalRating.setText("(" + (position + 1) * 65 + ")");
-
-
     }
 
     @Override
     public int getItemCount() {
-        return 5;
+        return data.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
