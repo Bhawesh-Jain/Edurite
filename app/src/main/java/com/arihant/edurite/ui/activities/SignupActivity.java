@@ -111,6 +111,7 @@ public class SignupActivity extends AppCompatActivity {
                         if (response.body().getResult().equalsIgnoreCase("true")) {
                             SignupModel.Data data = response.body().getData();
 
+                            session.setLogin(true);
                             session.setEmail(data.getUsername());
                             session.setUserId(data.getId());
                             session.setUserName(data.getName());

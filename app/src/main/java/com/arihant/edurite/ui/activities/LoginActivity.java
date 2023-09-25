@@ -73,6 +73,7 @@ public class LoginActivity extends AppCompatActivity {
                         if (response.body().getResult().equalsIgnoreCase("true")) {
                             LoginModel.Data data = response.body().getData();
 
+                            session.setLogin(true);
                             session.setEmail(data.getUsername());
                             session.setUserId(data.getId());
                             session.setUserName(data.getName());
