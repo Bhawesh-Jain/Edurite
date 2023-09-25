@@ -48,7 +48,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void validateLogin() {
-        if (binding.edtEmail.getText() != null && !binding.edtEmail.getText().toString().trim().isEmpty() && isValidEmail(binding.edtEmail.getText().toString().trim())) {
+//        if (binding.edtEmail.getText() != null && !binding.edtEmail.getText().toString().trim().isEmpty() && isValidEmail(binding.edtEmail.getText().toString().trim())) {
+        if (binding.edtEmail.getText() != null && !binding.edtEmail.getText().toString().trim().isEmpty()) {
             if (binding.edtPassword.getText() != null && !binding.edtPassword.getText().toString().trim().isEmpty()) {
                 login(binding.edtEmail.getText().toString().trim(), binding.edtPassword.getText().toString().trim(), fcm);
             } else {

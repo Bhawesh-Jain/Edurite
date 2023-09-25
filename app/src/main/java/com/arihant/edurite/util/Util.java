@@ -10,9 +10,12 @@ import android.net.Uri;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Base64;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.appcompat.content.res.AppCompatResources;
 
 import com.arihant.edurite.R;
 
@@ -45,17 +48,25 @@ public class Util {
         return Base64.encodeToString(byteArray, Base64.DEFAULT);
     }
 
-    public static Bitmap decodeImage(String image) {
-        byte[] decodedString = Base64.decode(image, Base64.DEFAULT);
+    public static Bitmap decodeImage(Context context, String image) {
+        byte[] decodedString = new byte[0];
+        try {
+            decodedString = Base64.decode(image, Base64.DEFAULT);
+        } catch (Exception e) {
+            Log.e("TAG", "decodeImage: Image Decode: ", e);
+        }
+        if (decodedString.length == 0) {
+            return BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_logo);
+        }
         return BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
     }
 
     public static String getCurrentTimeStamp() {
-        return new SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault()).format(new Date());
+        return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
     }
 
     public static String calculateDateDifference(String inputDate) {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault());
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
         try {
             Date date = sdf.parse(inputDate);
             long currentTimeMillis = System.currentTimeMillis();

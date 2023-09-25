@@ -40,7 +40,7 @@ public class CourseListAdapter extends RecyclerView.Adapter<CourseListAdapter.Vi
             holder.binding.textDesc.setText(current.getDescription());
             holder.binding.textLevel.setText(current.getType());
 
-            holder.binding.imageThumbnail.setImageBitmap(decodeImage(current.getImage()));
+            holder.binding.imageThumbnail.setImageBitmap(decodeImage(context, current.getImage()));
 
             holder.binding.rating.setRating(Float.parseFloat(current.getAvgRating()));
             holder.binding.textRating.setText(current.getAvgRating());
