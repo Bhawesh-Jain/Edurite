@@ -1,6 +1,7 @@
 package com.arihant.edurite.Retrofit;
 
 import com.arihant.edurite.models.LoginModel;
+import com.arihant.edurite.models.SignupModel;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -17,5 +18,13 @@ public interface ApiService {
             @Field("fcm") String fcm
     );
 
-
+    @FormUrlEncoded
+    @POST(BaseUrl.signup)
+    Call<SignupModel> signup(
+            @Field("name") String name,
+            @Field("username") String username,
+            @Field("password") String password,
+            @Field("image") String image,
+            @Field("fcm") String fcm
+    );
 }

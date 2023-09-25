@@ -1,6 +1,7 @@
 package com.arihant.edurite.ui.activities;
 
 import static com.arihant.edurite.util.Util.isValidEmail;
+import static com.arihant.edurite.util.Util.togglePassword;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,15 +41,16 @@ public class LoginActivity extends AppCompatActivity {
         session = new Session(activity);
 
         binding.textSignup.setOnClickListener(view -> startActivity(new Intent(activity, SignupActivity.class)));
+        binding.imagePasswordEye.setOnClickListener(view -> togglePassword(binding.edtPassword, binding.imagePasswordEye));
 
         binding.textLogin.setOnClickListener(view -> validateLogin());
         fcm = "Hello";
     }
 
     private void validateLogin() {
-        if (binding.edtEmail.getText() != null && !binding.edtEmail.getText().toString().isEmpty() && isValidEmail(binding.edtEmail.getText().toString())) {
-            if (binding.edtPassword.getText() != null && !binding.edtPassword.getText().toString().isEmpty()) {
-                login(binding.edtEmail.getText().toString(), binding.edtPassword.getText().toString(), fcm);
+        if (binding.edtEmail.getText() != null && !binding.edtEmail.getText().toString().trim().isEmpty() && isValidEmail(binding.edtEmail.getText().toString().trim())) {
+            if (binding.edtPassword.getText() != null && !binding.edtPassword.getText().toString().trim().isEmpty()) {
+                login(binding.edtEmail.getText().toString().trim(), binding.edtPassword.getText().toString().trim(), fcm);
             } else {
                 binding.edtPassword.requestFocus();
                 binding.edtPassword.setError("Invalid Password");
@@ -79,7 +81,6 @@ public class LoginActivity extends AppCompatActivity {
 
                             startActivity(new Intent(activity, DashboardActivity.class));
                             finish();
-
                         } else {
                             Snackbar.make(binding.getRoot(), response.body().getMsg(), Snackbar.LENGTH_LONG).show();
                             Log.d(TAG, "onResponse() called with: call = [" + call + "], response msg = [" + response.body().getMsg() + "]");
