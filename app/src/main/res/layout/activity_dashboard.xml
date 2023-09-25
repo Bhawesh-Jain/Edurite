@@ -106,7 +106,6 @@
                 android:paddingStart="0dp"
                 android:paddingTop="0dp"
                 android:paddingEnd="0dp"
-                app:lottie_scale="@integer/material_motion_duration_long_1"
                 app:lottie_autoPlay="true"
                 app:lottie_loop="false"
                 app:lottie_rawRes="@raw/bell_icon" />
