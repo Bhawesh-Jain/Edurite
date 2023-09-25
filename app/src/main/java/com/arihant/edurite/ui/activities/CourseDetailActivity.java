@@ -1,4 +1,4 @@
-package com.arihant.edurite.ui;
+package com.arihant.edurite.ui.activities;
 
 import android.app.Activity;
 import android.os.Bundle;

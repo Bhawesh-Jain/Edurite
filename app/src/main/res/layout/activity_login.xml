@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:paddingHorizontal="@dimen/_15sdp"
     android:paddingVertical="@dimen/_10sdp"
-    tools:context=".ui.LoginActivity"
+    tools:context=".ui.activities.LoginActivity"
     tools:ignore="ContentDescription">
 
     <RelativeLayout
@@ -65,7 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/prompt_medium"
-            android:text="Enter your Username &amp; Password"
+            android:text="Enter your Email &amp; Password"
             android:textColor="#1C2A4D"
             android:textSize="@dimen/_13sdp" />
 
@@ -89,14 +89,14 @@
             android:paddingVertical="@dimen/_15sdp">
 
             <EditText
-                android:id="@+id/edt_mobile"
+                android:id="@+id/edt_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_10sdp"
-                android:autofillHints="phone"
+                android:autofillHints="emailAddress"
                 android:background="@color/lightest_gray"
-                android:hint="Username"
-                android:inputType="phone"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
                 android:textColor="@color/black"
                 android:fontFamily="@font/prompt_regular"
                 android:textColorHint="@color/edit_text_color" />
@@ -131,7 +131,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_25sdp"
-            android:background="@drawable/custom_bg_logout"
+            android:background="@drawable/custom_bg_button"
             android:fontFamily="@font/prompt_bold"
             android:gravity="center"
             android:paddingHorizontal="@dimen/_10sdp"
@@ -139,6 +139,34 @@
             android:text="Login"
             android:textColor="@color/white"
             android:textSize="@dimen/_14sdp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/prompt_regular"
+                android:text="Don't have an account?"
+                android:textColor="@color/black_light"
+                android:textSize="@dimen/_11sdp" />
+
+            <TextView
+                android:id="@+id/text_signup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:fontFamily="@font/prompt_regular"
+                android:text="Sign Up"
+                android:textColor="@color/red"
+                android:textSize="@dimen/_12sdp" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

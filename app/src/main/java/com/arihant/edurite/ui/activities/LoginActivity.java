@@ -1,4 +1,4 @@
-package com.arihant.edurite.ui;
+package com.arihant.edurite.ui.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,10 +19,10 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         activity = this;
 
+        binding.textSignup.setOnClickListener(view -> startActivity(new Intent(activity, SignupActivity.class)));
 
         binding.textLogin.setOnClickListener(view -> {
-            startActivity(new Intent(activity, DashboardActivity.class));
-            finish();
+
         });
 
     }

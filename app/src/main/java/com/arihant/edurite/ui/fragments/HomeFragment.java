@@ -12,10 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.arihant.edurite.R;
 import com.arihant.edurite.adapter.CourseListAdapter;
 import com.arihant.edurite.databinding.FragmentHomeBinding;
-import com.arihant.edurite.ui.CourseDetailActivity;
+import com.arihant.edurite.ui.activities.CourseDetailActivity;
 
 public class HomeFragment extends Fragment {
     private Activity activity;

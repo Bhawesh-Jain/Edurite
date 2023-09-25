@@ -1,4 +1,4 @@
-package com.arihant.edurite.ui;
+package com.arihant.edurite.ui.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
