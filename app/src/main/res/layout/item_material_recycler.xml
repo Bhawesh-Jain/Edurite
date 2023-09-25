@@ -101,7 +101,7 @@
                 android:textSize="@dimen/_6sdp" />
 
             <TextView
-                android:id="@+id/text_level"
+                android:id="@+id/text_view_more"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/text_desc"
@@ -112,7 +112,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_toEndOf="@id/text_total_rating"
                 android:textAlignment="textEnd"
-                android:text="Intermediate"
+                android:text="@string/view_more"
                 android:textColor="@color/text_color"
                 android:textSize="@dimen/_8sdp" />
 

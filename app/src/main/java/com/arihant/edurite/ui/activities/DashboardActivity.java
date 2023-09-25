@@ -109,8 +109,5 @@ public class DashboardActivity extends AppCompatActivity {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction().replace(binding.container.getId(), fragment);
             ft.commit();
         }
-
     }
-
-
 }

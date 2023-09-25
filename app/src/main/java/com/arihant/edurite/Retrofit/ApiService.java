@@ -2,6 +2,7 @@ package com.arihant.edurite.Retrofit;
 
 import com.arihant.edurite.models.CourseListModel;
 import com.arihant.edurite.models.LoginModel;
+import com.arihant.edurite.models.MaterialListModel;
 import com.arihant.edurite.models.SignupModel;
 
 import retrofit2.Call;
@@ -31,4 +32,7 @@ public interface ApiService {
 
     @POST(BaseUrl.getCourseList)
     Call<CourseListModel> getCourseList();
+
+    @POST(BaseUrl.getMaterialList)
+    Call<MaterialListModel> getMaterialList();
 }
