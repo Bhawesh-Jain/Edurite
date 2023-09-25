@@ -46,10 +46,11 @@ public class MaterialListAdapter extends RecyclerView.Adapter<MaterialListAdapte
                     holder.binding.textViewMore.setText(R.string.view_less);
                 }
             });
+
+            holder.binding.rating.setRating(Float.parseFloat(current.getAvgRating()));
+            holder.binding.textRating.setText(current.getAvgRating());
+            holder.binding.textTotalRating.setText("(" + current.getReviewCount() + ")");
         }
-        holder.binding.rating.setRating(position + 1);
-        holder.binding.textRating.setText(String.valueOf(position + 1));
-        holder.binding.textTotalRating.setText("(" + (position + 1) * 65 + ")");
 
 
     }

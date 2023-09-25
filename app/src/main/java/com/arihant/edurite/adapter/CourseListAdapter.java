@@ -41,10 +41,11 @@ public class CourseListAdapter extends RecyclerView.Adapter<CourseListAdapter.Vi
             holder.binding.textLevel.setText(current.getType());
 
             holder.binding.imageThumbnail.setImageBitmap(decodeImage(current.getImage()));
+
+            holder.binding.rating.setRating(Float.parseFloat(current.getAvgRating()));
+            holder.binding.textRating.setText(current.getAvgRating());
+            holder.binding.textTotalRating.setText("(" + current.getReviewCount() + ")");
         }
-        holder.binding.rating.setRating(position + 1);
-        holder.binding.textRating.setText(String.valueOf(position + 1));
-        holder.binding.textTotalRating.setText("(" + (position + 1) * 65 + ")");
     }
 
     @Override

@@ -66,6 +66,12 @@ public class CourseListModel {
         @SerializedName("video")
         @Expose
         private String video;
+        @SerializedName("review_count")
+        @Expose
+        private String reviewCount;
+        @SerializedName("avg_rating")
+        @Expose
+        private String avgRating;
 
         public String getCourseId() {
             return courseId;
@@ -129,6 +135,22 @@ public class CourseListModel {
 
         public void setVideo(String video) {
             this.video = video;
+        }
+
+        public String getReviewCount() {
+            return reviewCount;
+        }
+
+        public void setReviewCount(String reviewCount) {
+            this.reviewCount = reviewCount;
+        }
+
+        public String getAvgRating() {
+            return avgRating;
+        }
+
+        public void setAvgRating(String avgRating) {
+            this.avgRating = avgRating;
         }
 
     }

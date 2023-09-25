@@ -71,6 +71,12 @@ public class MaterialListModel {
         @SerializedName("course_id")
         @Expose
         private String courseId;
+        @SerializedName("review_count")
+        @Expose
+        private String reviewCount;
+        @SerializedName("avg_rating")
+        @Expose
+        private String avgRating;
 
         public String getMaterialId() {
             return materialId;
@@ -118,6 +124,22 @@ public class MaterialListModel {
 
         public void setCourseId(String courseId) {
             this.courseId = courseId;
+        }
+
+        public String getReviewCount() {
+            return reviewCount;
+        }
+
+        public void setReviewCount(String reviewCount) {
+            this.reviewCount = reviewCount;
+        }
+
+        public String getAvgRating() {
+            return avgRating;
+        }
+
+        public void setAvgRating(String avgRating) {
+            this.avgRating = avgRating;
         }
 
     }
