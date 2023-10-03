@@ -15,15 +15,20 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:padding="@dimen/_10sdp"
-            android:layout_height="wrap_content"
+            android:layout_height="?attr/actionBarSize"
             android:id="@+id/header">
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_back" />
+
             <TextView
-                android:id="@+id/text_heading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/prompt_bold"
-                android:text="Materials"
+                android:text="Course Detail"
                 android:layout_centerInParent="true"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_20sdp" />
@@ -32,13 +37,163 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_250sdp"
-            app:cardUseCompatPadding="true"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginVertical="@dimen/_6sdp"
+            android:layout_height="wrap_content"
             app:cardCornerRadius="@dimen/_10sdp"
-            android:layout_margin="@dimen/_5sdp">
+            app:cardUseCompatPadding="false">
 
+            <LinearLayout
+                android:id="@+id/ll_body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/image_thumbnail"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_200sdp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.8"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_course"
+                    app:riv_corner_radius="@dimen/_10sdp"
+                    app:riv_mutate_background="true" />
+
+
+            </LinearLayout>
 
         </androidx.cardview.widget.CardView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:paddingVertical="@dimen/_10sdp">
+
+            <TextView
+                android:id="@+id/text_heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/prompt_bold"
+                android:text="This is the Heading that can be long!!"
+                android:textColor="@color/text_dark_color"
+                android:textSize="@dimen/_13sdp" />
+
+            <TextView
+                android:id="@+id/text_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_heading"
+                android:fontFamily="@font/prompt_regular"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam blandit pulvinar justo. Phasellus luctus porta convallis. Cras ac neque risus. Nunc eu rutrum ante. Phasellus congue nulla eget faucibus consectetur. Maecenas blandit risus sit amet arcu facilisis, vel maximus erat elementum. Nulla nisl arcu, rutrum at aliquam non, euismod"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/_8sdp" />
+
+            <TextView
+                android:id="@+id/text_rating_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/prompt_regular"
+                android:lineHeight="@dimen/_15sdp"
+                android:maxLines="3"
+                android:layout_alignTop="@id/text_rating"
+                android:layout_alignBottom="@id/text_rating"
+                android:text="Ratings: "
+                android:layout_marginStart="@dimen/_2sdp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_9sdp" />
+
+
+            <RatingBar
+                android:id="@+id/rating"
+                android:layout_toEndOf="@id/text_rating_heading"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_desc"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:progressTint="@color/gold"
+                android:rating="3"
+                android:stepSize="0.1" />
+
+            <TextView
+                android:id="@+id/text_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_desc"
+                android:fontFamily="@font/prompt_medium"
+                android:lineHeight="@dimen/_15sdp"
+                android:maxLines="3"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_toEndOf="@id/rating"
+                android:text="5"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:textColor="@color/text_dark_color"
+                android:textSize="@dimen/_9sdp" />
+
+            <TextView
+                android:id="@+id/text_total_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/prompt_regular"
+                android:lineHeight="@dimen/_15sdp"
+                android:maxLines="3"
+                android:layout_alignTop="@id/text_rating"
+                android:layout_toEndOf="@id/text_rating"
+                android:layout_alignBottom="@id/text_rating"
+                android:text="(556)"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:gravity="center"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/_6sdp" />
+
+            <TextView
+                android:id="@+id/text_level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_desc"
+                android:fontFamily="@font/prompt_regular"
+                android:lineHeight="@dimen/_15sdp"
+                android:maxLines="3"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_alignParentEnd="true"
+                android:layout_toEndOf="@id/text_total_rating"
+                android:textAlignment="textEnd"
+                android:text="Intermediate"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/_8sdp" />
+
+        </RelativeLayout>
+
+
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp" />
+
+        <TextView
+            android:id="@+id/text_empty_payment"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:fontFamily="@font/prompt_regular"
+            android:text="No Ratings Currently!"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/_11sdp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:id="@+id/recycler_view_rating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 
