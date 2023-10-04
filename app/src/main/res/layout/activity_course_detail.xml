@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.activities.CourseDetailActivity">
 
     <LinearLayout
@@ -13,10 +13,10 @@
         android:orientation="vertical">
 
         <RelativeLayout
+            android:id="@+id/header"
             android:layout_width="match_parent"
-            android:padding="@dimen/_10sdp"
             android:layout_height="?attr/actionBarSize"
-            android:id="@+id/header">
+            android:padding="@dimen/_10sdp">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -27,9 +27,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
                 android:fontFamily="@font/prompt_bold"
                 android:text="Course Detail"
-                android:layout_centerInParent="true"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_20sdp" />
 
@@ -37,31 +37,38 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_10sdp"
             android:layout_marginVertical="@dimen/_6sdp"
-            android:layout_height="wrap_content"
             app:cardCornerRadius="@dimen/_10sdp"
             app:cardUseCompatPadding="false">
 
-            <LinearLayout
-                android:id="@+id/ll_body"
+            <RelativeLayout
+                android:id="@+id/rl_body"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_200sdp"
                 android:orientation="vertical">
 
                 <com.makeramen.roundedimageview.RoundedImageView
                     android:id="@+id/image_thumbnail"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_200sdp"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:layout_weight="1.8"
                     android:scaleType="centerCrop"
                     android:src="@drawable/ic_course"
                     app:riv_corner_radius="@dimen/_10sdp"
                     app:riv_mutate_background="true" />
 
 
-            </LinearLayout>
+                <com.google.android.exoplayer2.ui.StyledPlayerView
+                    android:id="@+id/player_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:show_shuffle_button="true"
+                    app:show_subtitle_button="true" />
+
+
+            </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
 
@@ -96,26 +103,26 @@
                 android:id="@+id/text_rating_heading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/prompt_regular"
-                android:lineHeight="@dimen/_15sdp"
-                android:maxLines="3"
                 android:layout_alignTop="@id/text_rating"
                 android:layout_alignBottom="@id/text_rating"
-                android:text="Ratings: "
                 android:layout_marginStart="@dimen/_2sdp"
+                android:fontFamily="@font/prompt_regular"
                 android:gravity="center"
+                android:lineHeight="@dimen/_15sdp"
+                android:maxLines="3"
+                android:text="Ratings: "
                 android:textColor="@color/black"
                 android:textSize="@dimen/_9sdp" />
 
 
             <RatingBar
                 android:id="@+id/rating"
-                android:layout_toEndOf="@id/text_rating_heading"
                 style="?android:attr/ratingBarStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/text_desc"
                 android:layout_marginTop="@dimen/_8sdp"
+                android:layout_toEndOf="@id/text_rating_heading"
                 android:isIndicator="true"
                 android:numStars="5"
                 android:progressTint="@color/gold"
@@ -127,13 +134,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/text_desc"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_toEndOf="@id/rating"
                 android:fontFamily="@font/prompt_medium"
                 android:lineHeight="@dimen/_15sdp"
                 android:maxLines="3"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:layout_toEndOf="@id/rating"
                 android:text="5"
-                android:layout_marginStart="@dimen/_2sdp"
                 android:textColor="@color/text_dark_color"
                 android:textSize="@dimen/_9sdp" />
 
@@ -141,15 +148,15 @@
                 android:id="@+id/text_total_rating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignTop="@id/text_rating"
+                android:layout_alignBottom="@id/text_rating"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_toEndOf="@id/text_rating"
                 android:fontFamily="@font/prompt_regular"
+                android:gravity="center"
                 android:lineHeight="@dimen/_15sdp"
                 android:maxLines="3"
-                android:layout_alignTop="@id/text_rating"
-                android:layout_toEndOf="@id/text_rating"
-                android:layout_alignBottom="@id/text_rating"
                 android:text="(556)"
-                android:layout_marginStart="@dimen/_2sdp"
-                android:gravity="center"
                 android:textColor="@color/text_color"
                 android:textSize="@dimen/_6sdp" />
 
@@ -158,19 +165,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/text_desc"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_toEndOf="@id/text_total_rating"
                 android:fontFamily="@font/prompt_regular"
                 android:lineHeight="@dimen/_15sdp"
                 android:maxLines="3"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:layout_alignParentEnd="true"
-                android:layout_toEndOf="@id/text_total_rating"
-                android:textAlignment="textEnd"
                 android:text="Intermediate"
+                android:textAlignment="textEnd"
                 android:textColor="@color/text_color"
                 android:textSize="@dimen/_8sdp" />
 
         </RelativeLayout>
-
 
 
         <ProgressBar
@@ -180,9 +186,9 @@
 
         <TextView
             android:id="@+id/text_empty_payment"
-            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginTop="@dimen/_20sdp"
             android:fontFamily="@font/prompt_regular"
             android:text="No Ratings Currently!"
@@ -190,10 +196,23 @@
             android:textSize="@dimen/_11sdp" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:paddingHorizontal="@dimen/_15sdp"
             android:id="@+id/recycler_view_rating"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/_15sdp" />
+
+        <TextView
+            android:id="@+id/text_add_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/prompt_regular"
+            android:text="Add Rating"
+            android:textColor="@color/white"
+            android:paddingHorizontal="@dimen/_30sdp"
+            android:paddingVertical="@dimen/_10sdp"
+            android:background="@drawable/custom_bg_logout"
+            android:layout_margin="@dimen/_10sdp"
+            android:textSize="@dimen/_10ssp" />
 
     </LinearLayout>
 
