@@ -1,6 +1,7 @@
 package com.arihant.edurite.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -11,6 +12,8 @@ import com.arihant.edurite.R;
 import com.arihant.edurite.databinding.ItemCourseRecyclerBinding;
 import com.arihant.edurite.databinding.ItemMaterialRecyclerBinding;
 import com.arihant.edurite.models.MaterialListModel;
+import com.arihant.edurite.ui.activities.CourseDetailActivity;
+import com.arihant.edurite.ui.activities.MaterialDetailActivity;
 
 import java.util.List;
 
@@ -50,6 +53,8 @@ public class MaterialListAdapter extends RecyclerView.Adapter<MaterialListAdapte
             holder.binding.rating.setRating(Float.parseFloat(current.getAvgRating()));
             holder.binding.textRating.setText(current.getAvgRating());
             holder.binding.textTotalRating.setText("(" + current.getReviewCount() + ")");
+
+            holder.binding.llBody.setOnClickListener(v -> context.startActivity(new Intent(context, MaterialDetailActivity.class).putExtra("matId", current.getMaterialId())));
         }
 
 

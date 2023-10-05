@@ -17,4 +17,5 @@ public interface BaseUrl {
     String updateProfile = "updateProfile";
     String getUsersRatings = "getUsersRatings";
     String getCourseDetails = "getCourseDetails";
+    String getMaterialDetails = "getMaterialDetails";
 }

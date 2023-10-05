@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -19,7 +19,7 @@
 
             <ImageView
                 android:id="@+id/image_back"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/_35sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:layout_centerVertical="true"
                 android:paddingHorizontal="@dimen/_10sdp"
@@ -28,58 +28,23 @@
                 android:src="@drawable/ic_back" />
 
             <TextView
-                android:paddingTop="@dimen/_5sdp"
+                android:id="@+id/text_heading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:fontFamily="@font/prompt_bold"
-                android:text="Course Detail"
+                android:layout_marginHorizontal="@dimen/_40sdp"
+                android:paddingTop="@dimen/_5sdp"
                 android:textColor="@color/black"
+                android:gravity="center"
                 android:textSize="@dimen/_14sdp" />
 
         </RelativeLayout>
 
-        <androidx.cardview.widget.CardView
+        <WebView
+            android:id="@+id/pdfView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/_6sdp"
-            app:cardUseCompatPadding="false">
-
-            <RelativeLayout
-                android:id="@+id/rl_body"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_300sdp"
-                android:orientation="vertical">
-
-                <com.makeramen.roundedimageview.RoundedImageView
-                    android:id="@+id/image_thumbnail"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_course"
-                    app:riv_corner_radius="@dimen/_10sdp"
-                    app:riv_mutate_background="true" />
-
-
-                <androidx.media3.ui.PlayerView
-                    android:id="@+id/player_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:show_buffering="always"
-                    app:auto_show="false"
-                    app:unplayed_color="@color/light_gray"
-                    app:show_subtitle_button="true"
-                    app:scrubber_color="@color/red"
-                    app:played_color="@color/red"
-                    app:buffered_color="@color/bg_gray"
-                    app:animation_enabled="true"
-                    app:use_controller="true" />
-
-
-            </RelativeLayout>
-
-        </androidx.cardview.widget.CardView>
+            android:layout_height="@dimen/_500sdp"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -89,19 +54,11 @@
             android:paddingHorizontal="@dimen/_15sdp"
             android:paddingVertical="@dimen/_10sdp">
 
-            <TextView
-                android:id="@+id/text_heading"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/prompt_bold"
-                android:textColor="@color/text_dark_color"
-                android:textSize="@dimen/_13sdp" />
 
             <TextView
                 android:id="@+id/text_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/text_heading"
                 android:fontFamily="@font/prompt_regular"
                 android:textColor="@color/text_color"
                 android:textSize="@dimen/_8sdp" />
@@ -220,4 +177,4 @@
 
     </LinearLayout>
 
-</ScrollView>
+</androidx.core.widget.NestedScrollView>

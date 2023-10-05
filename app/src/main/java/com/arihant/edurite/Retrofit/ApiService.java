@@ -5,6 +5,7 @@ import com.arihant.edurite.models.CourseDetailModel;
 import com.arihant.edurite.models.CourseListModel;
 import com.arihant.edurite.models.FaqModel;
 import com.arihant.edurite.models.LoginModel;
+import com.arihant.edurite.models.MaterialDetailModel;
 import com.arihant.edurite.models.MaterialListModel;
 import com.arihant.edurite.models.PrivacyPolicyModel;
 import com.arihant.edurite.models.ReviewListModel;
@@ -45,6 +46,13 @@ public interface ApiService {
     @POST(BaseUrl.getCourseDetails)
     Call<CourseDetailModel> getCourseDetails(
             @Field("course_id") String courseId
+    );
+
+
+    @FormUrlEncoded
+    @POST(BaseUrl.getMaterialDetails)
+    Call<MaterialDetailModel> getMaterialDetails(
+            @Field("mat_id") String matId
     );
 
 

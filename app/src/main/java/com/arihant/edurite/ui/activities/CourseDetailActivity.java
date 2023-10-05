@@ -35,7 +35,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-@UnstableApi public class CourseDetailActivity extends AppCompatActivity {
+public class CourseDetailActivity extends AppCompatActivity {
     private Activity activity;
     private ActivityCourseDetailBinding binding;
     private Session session;
@@ -87,7 +87,7 @@ import retrofit2.Response;
         getCourseDetails(courseId);
         player = new ExoPlayer.Builder(activity).build();
 
-
+        binding.imageBack.setOnClickListener(v -> onBackPressed());
 
     }
 
