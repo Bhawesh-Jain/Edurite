@@ -6,6 +6,7 @@
     android:layout_marginVertical="@dimen/_6sdp"
     android:layout_height="wrap_content"
     app:cardCornerRadius="@dimen/_5sdp"
+    app:cardBackgroundColor="@color/white"
     app:cardUseCompatPadding="false">
 
     <RelativeLayout

@@ -38,15 +38,13 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_10sdp"
             android:layout_marginVertical="@dimen/_6sdp"
-            app:cardCornerRadius="@dimen/_10sdp"
             app:cardUseCompatPadding="false">
 
             <RelativeLayout
                 android:id="@+id/rl_body"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_200sdp"
+                android:layout_height="@dimen/_300sdp"
                 android:orientation="vertical">
 
                 <com.makeramen.roundedimageview.RoundedImageView
@@ -60,12 +58,19 @@
                     app:riv_mutate_background="true" />
 
 
-                <com.google.android.exoplayer2.ui.StyledPlayerView
+                <androidx.media3.ui.PlayerView
                     android:id="@+id/player_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:show_shuffle_button="true"
-                    app:show_subtitle_button="true" />
+                    app:show_buffering="always"
+                    app:auto_show="false"
+                    app:unplayed_color="@color/light_gray"
+                    app:show_subtitle_button="true"
+                    app:scrubber_color="@color/red"
+                    app:played_color="@color/red"
+                    app:buffered_color="@color/bg_gray"
+                    app:animation_enabled="true"
+                    app:use_controller="true" />
 
 
             </RelativeLayout>
@@ -85,7 +90,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/prompt_bold"
-                android:text="This is the Heading that can be long!!"
                 android:textColor="@color/text_dark_color"
                 android:textSize="@dimen/_13sdp" />
 
@@ -95,7 +99,6 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/text_heading"
                 android:fontFamily="@font/prompt_regular"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam blandit pulvinar justo. Phasellus luctus porta convallis. Cras ac neque risus. Nunc eu rutrum ante. Phasellus congue nulla eget faucibus consectetur. Maecenas blandit risus sit amet arcu facilisis, vel maximus erat elementum. Nulla nisl arcu, rutrum at aliquam non, euismod"
                 android:textColor="@color/text_color"
                 android:textSize="@dimen/_8sdp" />
 
@@ -156,7 +159,6 @@
                 android:gravity="center"
                 android:lineHeight="@dimen/_15sdp"
                 android:maxLines="3"
-                android:text="(556)"
                 android:textColor="@color/text_color"
                 android:textSize="@dimen/_6sdp" />
 
@@ -169,9 +171,7 @@
                 android:layout_marginTop="@dimen/_8sdp"
                 android:layout_toEndOf="@id/text_total_rating"
                 android:fontFamily="@font/prompt_regular"
-                android:lineHeight="@dimen/_15sdp"
                 android:maxLines="3"
-                android:text="Intermediate"
                 android:textAlignment="textEnd"
                 android:textColor="@color/text_color"
                 android:textSize="@dimen/_8sdp" />
@@ -185,7 +185,7 @@
             android:layout_height="@dimen/_30sdp" />
 
         <TextView
-            android:id="@+id/text_empty_payment"
+            android:id="@+id/text_empty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

@@ -1,6 +1,7 @@
 package com.arihant.edurite.Retrofit;
 
 import com.arihant.edurite.models.AboutUsModel;
+import com.arihant.edurite.models.CourseDetailModel;
 import com.arihant.edurite.models.CourseListModel;
 import com.arihant.edurite.models.FaqModel;
 import com.arihant.edurite.models.LoginModel;
@@ -37,6 +38,13 @@ public interface ApiService {
     @POST(BaseUrl.getUsersRatings)
     Call<ReviewListModel> getReview(
             @Field("user_id") String userId
+    );
+
+
+    @FormUrlEncoded
+    @POST(BaseUrl.getCourseDetails)
+    Call<CourseDetailModel> getCourseDetails(
+            @Field("course_id") String courseId
     );
 
 

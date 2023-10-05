@@ -3,6 +3,7 @@ package com.arihant.edurite.Retrofit;
 public interface BaseUrl {
 
     String Base_Url = "https://abmtech.tech/projects/edurite/Apis/";
+    String Image_Url = "https://abmtech.tech/projects/edurite/assets/uploads/";
 
     String login = "login";
     String signup = "signup";
@@ -15,4 +16,5 @@ public interface BaseUrl {
     String get_faq = "get_faq";
     String updateProfile = "updateProfile";
     String getUsersRatings = "getUsersRatings";
+    String getCourseDetails = "getCourseDetails";
 }

@@ -1,8 +1,11 @@
 package com.arihant.edurite.adapter;
 
+import static com.arihant.edurite.Retrofit.BaseUrl.Image_Url;
 import static com.arihant.edurite.util.Util.decodeImage;
 
 import android.content.Context;
+import android.content.Intent;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.arihant.edurite.databinding.ItemCourseRecyclerBinding;
 import com.arihant.edurite.models.CourseListModel;
+import com.arihant.edurite.ui.activities.CourseDetailActivity;
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -37,14 +42,17 @@ public class CourseListAdapter extends RecyclerView.Adapter<CourseListAdapter.Vi
             CourseListModel.Datum current = data.get(position);
 
             holder.binding.textHeading.setText(current.getTitle());
-            holder.binding.textDesc.setText(current.getDescription());
+            holder.binding.textDesc.setText(Html.fromHtml(current.getDescription(), Html.FROM_HTML_MODE_COMPACT));
             holder.binding.textLevel.setText(current.getType());
 
-            holder.binding.imageThumbnail.setImageBitmap(decodeImage(context, current.getImage()));
+
+            Glide.with(context).load(Image_Url + current.getImage()).into(holder.binding.imageThumbnail);
 
             holder.binding.rating.setRating(Float.parseFloat(current.getAvgRating()));
             holder.binding.textRating.setText(current.getAvgRating());
             holder.binding.textTotalRating.setText("(" + current.getReviewCount() + ")");
+
+            holder.binding.llBody.setOnClickListener(v -> context.startActivity(new Intent(context, CourseDetailActivity.class).putExtra("courseId", current.getCourseId())));
         }
     }
 
