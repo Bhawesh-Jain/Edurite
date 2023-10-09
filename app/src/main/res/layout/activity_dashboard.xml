@@ -56,6 +56,40 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rl_question"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_menu_navbar"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/_6sdp">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/question_anim"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@id/text_nav_question"
+                android:padding="@dimen/_6sdp"
+                android:scaleType="centerCrop"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="false"
+                app:lottie_rawRes="@raw/question_icon" />
+
+            <TextView
+                android:id="@+id/text_nav_question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:text="I.Q."
+                android:textColor="@color/black"
+                android:textSize="@dimen/_7sdp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:visibility="gone"
             android:id="@+id/rl_material"
             android:layout_width="0dp"
             android:layout_height="match_parent"

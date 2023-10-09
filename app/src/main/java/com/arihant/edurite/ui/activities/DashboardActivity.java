@@ -17,6 +17,7 @@ import com.airbnb.lottie.model.KeyPath;
 import com.arihant.edurite.R;
 import com.arihant.edurite.databinding.ActivityDashboardBinding;
 import com.arihant.edurite.ui.fragments.HomeFragment;
+import com.arihant.edurite.ui.fragments.InterviewQuestionFragment;
 import com.arihant.edurite.ui.fragments.MaterialFragment;
 import com.arihant.edurite.ui.fragments.NotificationFragment;
 import com.arihant.edurite.ui.fragments.SettingsFragment;
@@ -52,6 +53,12 @@ public class DashboardActivity extends AppCompatActivity {
                 frameInfo -> new PorterDuffColorFilter(Color.GRAY, PorterDuff.Mode.SRC_ATOP)
         );
 
+        binding.questionAnim.addValueCallback(
+                new KeyPath("**"),
+                LottieProperty.COLOR_FILTER,
+                frameInfo -> new PorterDuffColorFilter(Color.GRAY, PorterDuff.Mode.SRC_ATOP)
+        );
+
         binding.coursesAnim.addValueCallback(
                 new KeyPath("**"),
                 LottieProperty.COLOR_FILTER,
@@ -80,6 +87,10 @@ public class DashboardActivity extends AppCompatActivity {
             binding.settingsAnim.playAnimation();
             changeFragment(3);
         });
+        binding.rlQuestion.setOnClickListener(view -> {
+            binding.questionAnim.playAnimation();
+            changeFragment(4);
+        });
     }
 
     private void changeFragment(int position) {
@@ -99,6 +110,10 @@ public class DashboardActivity extends AppCompatActivity {
                 break;
             case 3:
                 fragment = new SettingsFragment();
+
+                break;
+            case 4:
+                fragment = new InterviewQuestionFragment();
 
                 break;
             default:
