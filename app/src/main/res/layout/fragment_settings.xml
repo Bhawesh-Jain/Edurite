@@ -56,7 +56,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_20sdp"
                         android:fontFamily="@font/prompt_medium"
-                        android:text="@string/app_name"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
 

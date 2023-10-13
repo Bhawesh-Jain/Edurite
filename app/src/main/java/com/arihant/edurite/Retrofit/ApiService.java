@@ -32,7 +32,7 @@ public interface ApiService {
     @FormUrlEncoded
     @POST(BaseUrl.changePassword)
     Call<LoginModel> changePassword(
-            @Field("userId") String userId,
+            @Field("user_id") String userId,
             @Field("password_old") String passwordOld,
             @Field("password_new") String passwordNew
     );

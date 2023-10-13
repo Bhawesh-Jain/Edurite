@@ -81,7 +81,7 @@ public class SettingsFragment extends Fragment {
                             session.setUserId(data.getId());
                             session.setUserName(data.getName());
 
-                            binding.textUserName.setText(session.getUserName());
+                            binding.textUserName.setText(data.getName());
                             binding.imageProfile.setImageBitmap(decodeImage(activity, data.getProfileImg()));
                         } else {
                             Log.d(TAG, "onResponse() called with: call = [" + call + "], response msg = [" + response.body().getMsg() + "]");

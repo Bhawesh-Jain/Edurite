@@ -122,6 +122,13 @@ public class CourseDetailActivity extends AppCompatActivity {
                             binding.recyclerViewRating.setAdapter(new CourseReviewListAdapter(activity, response.body().getData().getReviews()));
                             binding.recyclerViewRating.setLayoutManager(new LinearLayoutManager(activity));
 
+                            boolean flag = true;
+                            for (CourseDetailModel.Data.Review review : response.body().getData().getReviews()) {
+                                if (review.getUserId().equalsIgnoreCase(session.getUserId())) flag = false;
+                            }
+
+                            if (flag) binding.textAddRating.setVisibility(View.VISIBLE);
+
                             if (!data.getCourse().getImage().isEmpty())
                                 Glide.with(getApplicationContext()).load(Image_Url + data.getCourse().getImage()).into(binding.imageThumbnail);
 
@@ -140,8 +147,6 @@ public class CourseDetailActivity extends AppCompatActivity {
                                 player.setMediaItem(mediaItem);
                                 player.prepare();
                                 player.play();
-
-
                             }
 
                             binding.progressbar.setVisibility(View.GONE);

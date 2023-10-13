@@ -37,6 +37,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14sdp" />
 
+
         </RelativeLayout>
 
         <androidx.cardview.widget.CardView
@@ -182,6 +183,21 @@
 
         </RelativeLayout>
 
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/text_add_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/prompt_regular"
+            android:text="Add Rating"
+            android:layout_gravity="start"
+            android:textColor="@color/white"
+            android:paddingHorizontal="@dimen/_20sdp"
+            android:paddingVertical="@dimen/_10sdp"
+            android:background="@drawable/custom_bg_logout"
+            android:layout_margin="@dimen/_10sdp"
+            android:textSize="@dimen/_8ssp" />
+
 
         <ProgressBar
             android:id="@+id/progressbar"
@@ -204,20 +220,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="@dimen/_15sdp" />
-
-        <TextView
-            android:visibility="gone"
-            android:id="@+id/text_add_rating"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/prompt_regular"
-            android:text="Add Rating"
-            android:textColor="@color/white"
-            android:paddingHorizontal="@dimen/_30sdp"
-            android:paddingVertical="@dimen/_10sdp"
-            android:background="@drawable/custom_bg_logout"
-            android:layout_margin="@dimen/_10sdp"
-            android:textSize="@dimen/_10ssp" />
 
     </LinearLayout>
 

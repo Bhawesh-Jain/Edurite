@@ -50,14 +50,10 @@ public class ChangePasswordActivity extends AppCompatActivity {
 
     private void validate() {
         if (binding.edtPassword.getText().toString().isEmpty()) {
-            binding.edtPassword.setError("Can't be \bEmpty!");
+            binding.edtPassword.setError("Can't be Empty!");
             binding.edtPassword.requestFocus();
         } else if (binding.edtNewPassword.getText().toString().isEmpty()) {
-            binding.edtNewPassword.setError("Can't be \bEmpty!");
-            binding.edtNewPassword.requestFocus();
-        } else if (!binding.edtPassword.getText().toString().equals(binding.edtNewPassword.getText().toString())) {
-            binding.edtPassword.setError("Passwords Don't Match!");
-            binding.edtNewPassword.setError("Passwords Don't Match!");
+            binding.edtNewPassword.setError("Can't be Empty!");
             binding.edtNewPassword.requestFocus();
         } else {
             changePassword(session.getUserId(), binding.edtPassword.getText().toString().trim(), binding.edtNewPassword.getText().toString().trim());
@@ -74,8 +70,12 @@ public class ChangePasswordActivity extends AppCompatActivity {
                 if (response.code() == 200) {
                     if (response.body() != null) {
                         if (response.body().getResult().equalsIgnoreCase("true")) {
-                            Toast.makeText(activity, "Password Change Successful!", Toast.LENGTH_SHORT).show();
-                            finish();
+                            if (response.body().getMsg().trim().equalsIgnoreCase("Password not Match")) {
+                                Snackbar.make(binding.getRoot(), "Incorrect Old Password", Snackbar.LENGTH_LONG).show();
+                            } else {
+                                Toast.makeText(activity, "Password Change Successful!", Toast.LENGTH_SHORT).show();
+                                finish();
+                            }
                         } else {
                             if (response.body().getMsg().trim().equalsIgnoreCase("Password not Match"))
                                 Snackbar.make(binding.getRoot(), "Incorrect Old Password", Snackbar.LENGTH_LONG).show();

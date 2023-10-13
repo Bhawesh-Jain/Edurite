@@ -4,6 +4,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class UserProfileModel {
+
     @SerializedName("result")
     @Expose
     private String result;
