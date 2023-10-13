@@ -21,6 +21,7 @@ import com.arihant.edurite.Retrofit.RetrofitClient;
 import com.arihant.edurite.databinding.FragmentSettingsBinding;
 import com.arihant.edurite.models.UserProfileModel;
 import com.arihant.edurite.ui.activities.AboutUsActivity;
+import com.arihant.edurite.ui.activities.ChangePasswordActivity;
 import com.arihant.edurite.ui.activities.FaqActivity;
 import com.arihant.edurite.ui.activities.PrivacyPolicyActivity;
 import com.arihant.edurite.ui.activities.ProfileActivity;
@@ -54,6 +55,7 @@ public class SettingsFragment extends Fragment {
         binding.llFaq.setOnClickListener(view -> startActivity(new Intent(activity, FaqActivity.class)));
         binding.llProfileCard.setOnClickListener(view -> startActivity(new Intent(activity, ProfileActivity.class)));
         binding.llUserProfile.setOnClickListener(view -> startActivity(new Intent(activity, ProfileActivity.class)));
+        binding.llChangePassword.setOnClickListener(view -> startActivity(new Intent(activity, ChangePasswordActivity.class)));
         binding.textLogout.setOnClickListener(view -> session.logout());
 
         return binding.getRoot();

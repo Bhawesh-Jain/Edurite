@@ -30,6 +30,18 @@
             android:layout_below="@id/text_heading"
             android:layout_marginTop="@dimen/_10sdp" />
 
+
+        <TextView
+            android:layout_margin="@dimen/_200sdp"
+            android:id="@+id/text_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/prompt_regular"
+            android:text="No Notifications Currently!"
+            android:layout_centerInParent="true"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13sdp" />
+
     </RelativeLayout>
 
 </androidx.core.widget.NestedScrollView>

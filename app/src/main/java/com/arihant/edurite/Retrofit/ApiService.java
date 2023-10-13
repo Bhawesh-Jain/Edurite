@@ -7,6 +7,7 @@ import com.arihant.edurite.models.FaqModel;
 import com.arihant.edurite.models.LoginModel;
 import com.arihant.edurite.models.MaterialDetailModel;
 import com.arihant.edurite.models.MaterialListModel;
+import com.arihant.edurite.models.NotificationModel;
 import com.arihant.edurite.models.PrivacyPolicyModel;
 import com.arihant.edurite.models.ReviewListModel;
 import com.arihant.edurite.models.SignupModel;
@@ -29,6 +30,14 @@ public interface ApiService {
     );
 
     @FormUrlEncoded
+    @POST(BaseUrl.changePassword)
+    Call<LoginModel> changePassword(
+            @Field("userId") String userId,
+            @Field("password_old") String passwordOld,
+            @Field("password_new") String passwordNew
+    );
+
+    @FormUrlEncoded
     @POST(BaseUrl.getUserProfile)
     Call<UserProfileModel> getProfile(
             @Field("user_id") String userId
@@ -38,6 +47,12 @@ public interface ApiService {
     @FormUrlEncoded
     @POST(BaseUrl.getUsersRatings)
     Call<ReviewListModel> getReview(
+            @Field("user_id") String userId
+    );
+
+    @FormUrlEncoded
+    @POST(BaseUrl.getNotificationByUserId)
+    Call<NotificationModel> getNotificationList(
             @Field("user_id") String userId
     );
 

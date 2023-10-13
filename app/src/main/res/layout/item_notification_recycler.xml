@@ -15,12 +15,12 @@
         android:orientation="vertical">
 
         <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/image_thumbnail"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_130sdp"
             android:layout_gravity="center"
             android:layout_weight="1.8"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_course"
             app:riv_corner_radius="@dimen/_10sdp"
             app:riv_mutate_background="true" />
 
@@ -39,7 +39,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/prompt_bold"
-                android:text="This is the Heading that can be long!!"
                 android:textColor="@color/text_dark_color"
                 android:textSize="@dimen/_13sdp" />
 
@@ -51,7 +50,6 @@
                 android:fontFamily="@font/prompt_regular"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam blandit pulvinar justo. Phasellus luctus porta convallis. Cras ac neque risus. Nunc eu rutrum ante. Phasellus congue nulla eget faucibus consectetur. Maecenas blandit risus sit amet arcu facilisis, vel maximus erat elementum. Nulla nisl arcu, rutrum at aliquam non, euismod"
                 android:textColor="@color/text_color"
                 android:textSize="@dimen/_8sdp" />
 
@@ -80,7 +78,6 @@
                 android:layout_marginTop="@dimen/_8sdp"
                 android:layout_alignParentEnd="true"
                 android:textAlignment="textEnd"
-                android:text="24-09-2023"
                 android:textColor="@color/text_color"
                 android:textSize="@dimen/_8sdp" />
 
