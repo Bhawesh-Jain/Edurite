@@ -8,6 +8,7 @@ public interface BaseUrl {
     String login = "login";
     String signup = "signup";
     String getUserProfile = "getUserProfile";
+    String addReviewCourse = "addReviewCourse";
     String changePassword = "changePassword";
     String getCourseList = "getCourseList";
     String getMaterialList = "getMaterialList";

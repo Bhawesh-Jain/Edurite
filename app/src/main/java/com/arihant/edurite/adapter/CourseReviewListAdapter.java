@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.arihant.edurite.R;
 import com.arihant.edurite.databinding.ItemReviewRecyclerBinding;
 import com.arihant.edurite.models.CourseDetailModel;
 import com.arihant.edurite.models.ReviewListModel;
@@ -41,6 +42,13 @@ public class CourseReviewListAdapter extends RecyclerView.Adapter<CourseReviewLi
             holder.binding.rating.setRating(Float.parseFloat(current.getRating()));
             holder.binding.textDate.setText(calculateDateDifference(current.getDate()));
 
+            holder.binding.getRoot().setOnClickListener(view -> {
+                if (holder.binding.textDesc.getMaxLines() != 3) {
+                    holder.binding.textDesc.setMaxLines(3);
+                } else {
+                    holder.binding.textDesc.setMaxLines(1000);
+                }
+            });
         }
     }
 

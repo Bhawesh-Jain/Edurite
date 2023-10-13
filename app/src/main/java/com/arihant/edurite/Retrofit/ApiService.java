@@ -38,6 +38,16 @@ public interface ApiService {
     );
 
     @FormUrlEncoded
+    @POST(BaseUrl.addReviewCourse)
+    Call<LoginModel> addReviewCourse(
+            @Field("user_id") String user_id,
+            @Field("course_id") String course_id,
+            @Field("username") String username,
+            @Field("review") String review,
+            @Field("rating") String rating
+    );
+
+    @FormUrlEncoded
     @POST(BaseUrl.getUserProfile)
     Call<UserProfileModel> getProfile(
             @Field("user_id") String userId
