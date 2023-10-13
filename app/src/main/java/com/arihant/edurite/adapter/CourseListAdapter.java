@@ -6,28 +6,34 @@ import static com.arihant.edurite.util.Util.decodeImage;
 import android.content.Context;
 import android.content.Intent;
 import android.text.Html;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
+import androidx.collection.ArraySet;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.arihant.edurite.databinding.ItemCourseRecyclerBinding;
 import com.arihant.edurite.models.CourseListModel;
+import com.arihant.edurite.models.FaqModel;
 import com.arihant.edurite.ui.activities.CourseDetailActivity;
 import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CourseListAdapter extends RecyclerView.Adapter<CourseListAdapter.ViewHolder> {
     private final Context context;
     private final List<CourseListModel.Datum> data;
+    private final List<CourseListModel.Datum> filteredList;
 
     public CourseListAdapter(Context context, List<CourseListModel.Datum> data) {
         this.context = context;
         this.data = data;
+        this.filteredList = new ArrayList<>(data);
     }
 
     @NonNull
@@ -38,8 +44,8 @@ public class CourseListAdapter extends RecyclerView.Adapter<CourseListAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        if (data.get(position) != null) {
-            CourseListModel.Datum current = data.get(position);
+        if (filteredList.get(position) != null) {
+            CourseListModel.Datum current = filteredList.get(position);
 
             holder.binding.textHeading.setText(current.getTitle());
             holder.binding.textDesc.setText(Html.fromHtml(current.getDescription(), Html.FROM_HTML_MODE_COMPACT));
@@ -58,7 +64,7 @@ public class CourseListAdapter extends RecyclerView.Adapter<CourseListAdapter.Vi
 
     @Override
     public int getItemCount() {
-        return data.size();
+        return filteredList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -69,5 +75,21 @@ public class CourseListAdapter extends RecyclerView.Adapter<CourseListAdapter.Vi
 
             this.binding = binding;
         }
+    }
+
+
+    public void filter(String text) {
+        filteredList.clear();
+        if (TextUtils.isEmpty(text)) {
+            filteredList.addAll(data);
+        } else {
+            text = text.toLowerCase().trim();
+            for (CourseListModel.Datum item : data) {
+                if (item.getTitle().toLowerCase().contains(text)) {
+                    filteredList.add(item);
+                }
+            }
+        }
+        notifyDataSetChanged();
     }
 }

@@ -4,6 +4,8 @@ import static com.arihant.edurite.ui.activities.LoginActivity.TAG;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +32,7 @@ public class HomeFragment extends Fragment {
     private Activity activity;
     private FragmentHomeBinding binding;
     private ProgressDialog progressDialog;
+    private CourseListAdapter adapter;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -46,6 +49,24 @@ public class HomeFragment extends Fragment {
         progressDialog = new ProgressDialog(activity);
 
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(activity));
+
+        binding.edtSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (adapter != null) adapter.filter(s.toString());
+            }
+        });
+
         getCourseList();
     }
 
@@ -59,7 +80,8 @@ public class HomeFragment extends Fragment {
                 if (response.code() == 200) {
                     if (response.body() != null) {
                         if (response.body().getResult().equalsIgnoreCase("true")) {
-                            binding.recyclerView.setAdapter(new CourseListAdapter(activity, response.body().getData()));
+                            adapter = new CourseListAdapter(activity, response.body().getData());
+                            binding.recyclerView.setAdapter(adapter);
                         } else {
                             String message = response.body().getMsg();
                             Snackbar.make(binding.getRoot(), message, Snackbar.LENGTH_LONG).show();
