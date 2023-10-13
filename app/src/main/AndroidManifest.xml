@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Edurite"
         tools:targetApi="31">
         <activity
+            android:name=".ui.activities.MyRatingsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.activities.ChangePasswordActivity"
             android:exported="false" />
         <activity
