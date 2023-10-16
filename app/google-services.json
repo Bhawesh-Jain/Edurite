@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "799763371836",
+    "project_id": "iraj-education",
+    "storage_bucket": "iraj-education.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799763371836:android:8d30e0b7a23dbec5df7039",
+        "android_client_info": {
+          "package_name": "com.arihant.edurite"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqOi0yxrTfeDUTWTIOihFNxhmejhmSx0E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
