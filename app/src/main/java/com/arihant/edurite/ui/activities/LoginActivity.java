@@ -15,9 +15,11 @@ import com.arihant.edurite.Retrofit.ApiService;
 import com.arihant.edurite.Retrofit.RetrofitClient;
 import com.arihant.edurite.databinding.ActivityLoginBinding;
 import com.arihant.edurite.models.LoginModel;
+import com.arihant.edurite.notification.MyFirebaseMessagingService;
 import com.arihant.edurite.util.ProgressDialog;
 import com.arihant.edurite.util.Session;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.messaging.FirebaseMessagingService;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -44,7 +46,8 @@ public class LoginActivity extends AppCompatActivity {
         binding.imagePasswordEye.setOnClickListener(view -> togglePassword(binding.edtPassword, binding.imagePasswordEye));
 
         binding.textLogin.setOnClickListener(view -> validateLogin());
-        fcm = "Hello";
+
+        fcm = session.getFCM();
     }
 
     private void validateLogin() {

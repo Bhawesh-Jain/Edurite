@@ -5,7 +5,6 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -18,24 +17,50 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
 import com.arihant.edurite.R;
+import com.arihant.edurite.Retrofit.ApiService;
+import com.arihant.edurite.Retrofit.RetrofitClient;
+import com.arihant.edurite.models.LoginModel;
 import com.arihant.edurite.ui.activities.SplashActivity;
+import com.arihant.edurite.util.Session;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
 import java.util.Random;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private static final String TAG = "NOTIFICATION";
+
 
     @Override
     public void onNewToken(@NonNull String token) {
         Log.d(TAG, "Refreshed token: " + token);
+        Session session = new Session(getApplicationContext());
 
-        // If you want to send messages to this application instance or
-        // manage this apps subscriptions on the server side, send the
-        // FCM registration token to your app server.
-        // sendRegistrationToServer(token);
+        session.setFCM(token);
+        sendRegistrationToServer(token, session);
     }
+
+    private void sendRegistrationToServer(String fcm, Session session) {
+        if (session.isLoggedIn()) {
+            ApiService apiService = RetrofitClient.getClient(getApplicationContext());
+            apiService.addFcm(session.getUserId(), fcm).enqueue(new Callback<LoginModel>() {
+                @Override
+                public void onResponse(@NonNull Call<LoginModel> call, @NonNull Response<LoginModel> response) {
+                    Log.d(TAG, "sendRegistrationToServer() called with: call = [" + call + "], response = [" + response.code() + "]");
+                }
+
+                @Override
+                public void onFailure(@NonNull Call<LoginModel> call, @NonNull Throwable t) {
+                    Log.e(TAG, "onFailure() called with: call = [" + call + "], t = [" + t.getLocalizedMessage() + "]");
+                }
+            });
+        }
+    }
+
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {

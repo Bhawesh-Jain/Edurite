@@ -30,6 +30,13 @@ public interface ApiService {
     );
 
     @FormUrlEncoded
+    @POST(BaseUrl.addFcm)
+    Call<LoginModel> addFcm(
+            @Field("user_id") String userId,
+            @Field("fcm") String fcm
+    );
+
+    @FormUrlEncoded
     @POST(BaseUrl.changePassword)
     Call<LoginModel> changePassword(
             @Field("user_id") String userId,

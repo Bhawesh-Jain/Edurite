@@ -17,6 +17,7 @@ public interface BaseUrl {
     String getNotificationByUserId = "getNotificationByUserId";
     String getTerms = "getTerms";
     String get_faq = "get_faq";
+    String addFcm = "addFcm";
     String updateProfile = "updateProfile";
     String getUsersRatings = "getUsersRatings";
     String getCourseDetails = "getCourseDetails";
